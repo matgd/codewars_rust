@@ -1,5 +1,6 @@
 mod string_ends_with;
 mod testing_1_2_3;
+mod duplicate_encode;
 
 fn main() {
 }
@@ -19,5 +20,12 @@ fn testing_1_2_3_test() {
     let non_empty_arr: &[&str] = &["a", "b", "c"];
     let non_empty_str_vec: Vec<String> = vec!["1: a".to_string(), "2: b".to_string(), "3: c".to_string()];
     assert_eq!(testing_1_2_3::number(non_empty_arr), non_empty_str_vec);
+}
 
+#[test]
+fn duplicate_encode_test() {
+  assert_eq!(duplicate_encode::duplicate_encode("din"),"(((");
+  assert_eq!(duplicate_encode::duplicate_encode("recede"),"()()()");
+  assert_eq!(duplicate_encode::duplicate_encode("Success"),")())())","should ignore case");
+  assert_eq!(duplicate_encode::duplicate_encode("(( @"),"))((");
 }
