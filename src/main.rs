@@ -1,6 +1,7 @@
 mod string_ends_with;
 mod testing_1_2_3;
 mod duplicate_encode;
+mod min_max;
 
 fn main() {
 }
@@ -28,4 +29,11 @@ fn duplicate_encode_test() {
   assert_eq!(duplicate_encode::duplicate_encode("recede"),"()()()");
   assert_eq!(duplicate_encode::duplicate_encode("Success"),")())())","should ignore case");
   assert_eq!(duplicate_encode::duplicate_encode("(( @"),"))((");
+}
+
+#[test]
+fn min_max_test() {
+  assert_eq!(min_max::min_max(&[1]), (1,1));
+  assert_eq!(min_max::min_max(&[1,2,3,4,5]), (1,5));
+  assert_eq!(min_max::min_max(&[2334454,5]), (5,2334454));
 }
