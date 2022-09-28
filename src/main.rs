@@ -2,6 +2,7 @@ mod string_ends_with;
 mod testing_1_2_3;
 mod duplicate_encode;
 mod min_max;
+mod walk;
 
 fn main() {
 }
@@ -36,4 +37,13 @@ fn min_max_test() {
   assert_eq!(min_max::min_max(&[1]), (1,1));
   assert_eq!(min_max::min_max(&[1,2,3,4,5]), (1,5));
   assert_eq!(min_max::min_max(&[2334454,5]), (5,2334454));
+}
+
+#[test]
+fn is_valid_walk_test() {
+    assert!(walk::is_valid_walk(&['n','s','n','s','n','s','n','s','n','s']));
+    assert!(!walk::is_valid_walk(&['w','e','w','e','w','e','w','e','w','e','w','e']));
+    assert!(!walk::is_valid_walk(&['w']));
+    assert!(!walk::is_valid_walk(&['n','n','n','s','n','s','n','s','n','s']));
+    assert!(!walk::is_valid_walk(&['e', 'e', 'e', 'e', 'w', 'w', 's', 's', 's', 's']))
 }
