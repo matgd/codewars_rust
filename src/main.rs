@@ -5,6 +5,7 @@ mod min_max;
 mod walk;
 mod validate_pin;
 mod reverse_5;
+mod scoring_words;
 
 fn main() {
 }
@@ -82,4 +83,18 @@ fn spin_words_test() {
     assert_eq!(reverse_5::spin_words("You are almost to the last test"), "You are tsomla to the last test");
     assert_eq!(reverse_5::spin_words("Just kidding there is still one more"), "Just gniddik ereht is llits one more");
     assert_eq!(reverse_5::spin_words("Seriously this is the last one"), "ylsuoireS this is the last one");
+}
+
+#[test]
+fn test_high_scoring() {
+    assert_eq!(scoring_words::high("man i need a taxi up to ubud"), "taxi");               
+    assert_eq!(scoring_words::high("what time are we climbing up the volcano"), "volcano");
+    assert_eq!(scoring_words::high("take me to semynak"), "semynak");                      
+    assert_eq!(scoring_words::high("massage yes massage yes massage"), "massage");         
+    assert_eq!(scoring_words::high("take two bintang and a dance please"), "bintang"); 
+    assert_eq!(scoring_words::high("aa b"), "aa");         
+    assert_eq!(scoring_words::high("b aa"), "b");     
+    assert_eq!(scoring_words::high("bb d"), "bb");                            
+    assert_eq!(scoring_words::high("d bb"), "d"); 
+    assert_eq!(scoring_words::high("aaa b"), "aaa");                                     
 }
