@@ -4,6 +4,7 @@ mod duplicate_encode;
 mod min_max;
 mod walk;
 mod validate_pin;
+mod reverse_5;
 
 fn main() {
 }
@@ -70,4 +71,15 @@ fn validate_pin_test() {
     assert_eq!(validate_pin::validate_pin("000000"), true);
     assert_eq!(validate_pin::validate_pin("123456"), true);
     assert_eq!(validate_pin::validate_pin("090909"), true);
+}
+
+#[test]
+fn spin_words_test() {
+    assert_eq!(reverse_5::spin_words("Welcome"), "emocleW");
+    assert_eq!(reverse_5::spin_words("Hey fellow warriors"), "Hey wollef sroirraw");
+    assert_eq!(reverse_5::spin_words("This is a test"), "This is a test");
+    assert_eq!(reverse_5::spin_words("This is another test"), "This is rehtona test");
+    assert_eq!(reverse_5::spin_words("You are almost to the last test"), "You are tsomla to the last test");
+    assert_eq!(reverse_5::spin_words("Just kidding there is still one more"), "Just gniddik ereht is llits one more");
+    assert_eq!(reverse_5::spin_words("Seriously this is the last one"), "ylsuoireS this is the last one");
 }
