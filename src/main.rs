@@ -6,6 +6,7 @@ mod walk;
 mod validate_pin;
 mod reverse_5;
 mod scoring_words;
+mod phone;
 
 fn main() {
 }
@@ -86,7 +87,7 @@ fn spin_words_test() {
 }
 
 #[test]
-fn test_high_scoring() {
+fn high_scoring_test() {
     assert_eq!(scoring_words::high("man i need a taxi up to ubud"), "taxi");               
     assert_eq!(scoring_words::high("what time are we climbing up the volcano"), "volcano");
     assert_eq!(scoring_words::high("take me to semynak"), "semynak");                      
@@ -97,4 +98,11 @@ fn test_high_scoring() {
     assert_eq!(scoring_words::high("bb d"), "bb");                            
     assert_eq!(scoring_words::high("d bb"), "d"); 
     assert_eq!(scoring_words::high("aaa b"), "aaa");                                     
+}
+
+#[test]
+fn create_phone_number_test() {
+  assert_eq!(phone::create_phone_number(&[1, 2, 3, 4, 5, 6, 7, 8, 9, 0]), "(123) 456-7890");
+  assert_eq!(phone::create_phone_number(&[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]), "(111) 111-1111");
+  assert_eq!(phone::create_phone_number(&[1, 2, 3, 4, 5, 6, 7, 8, 9, 9]), "(123) 456-7899");
 }
