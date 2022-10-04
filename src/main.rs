@@ -7,6 +7,7 @@ mod validate_pin;
 mod reverse_5;
 mod scoring_words;
 mod phone;
+mod rot13;
 
 fn main() {
 }
@@ -102,7 +103,15 @@ fn high_scoring_test() {
 
 #[test]
 fn create_phone_number_test() {
-  assert_eq!(phone::create_phone_number(&[1, 2, 3, 4, 5, 6, 7, 8, 9, 0]), "(123) 456-7890");
-  assert_eq!(phone::create_phone_number(&[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]), "(111) 111-1111");
-  assert_eq!(phone::create_phone_number(&[1, 2, 3, 4, 5, 6, 7, 8, 9, 9]), "(123) 456-7899");
+    assert_eq!(phone::create_phone_number(&[1, 2, 3, 4, 5, 6, 7, 8, 9, 0]), "(123) 456-7890");
+    assert_eq!(phone::create_phone_number(&[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]), "(111) 111-1111");
+    assert_eq!(phone::create_phone_number(&[1, 2, 3, 4, 5, 6, 7, 8, 9, 9]), "(123) 456-7899");
+}
+
+#[test]
+fn rot13_test() {
+    assert_eq!(rot13::rot13("test"), "grfg");
+    assert_eq!(rot13::rot13("Test"), "Grfg");
+    assert_eq!(rot13::rot13("T est"), "G rfg");
+    assert_eq!(rot13::rot13("123Test"), "123Grfg");
 }
