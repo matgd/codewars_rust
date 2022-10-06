@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 #[allow(dead_code)]
-pub fn duplicate_encode(word: &str)->String {
+fn duplicate_encode(word: &str)->String {
     let lower_word = word.to_lowercase();
 
     let mut chars_map = HashMap::new();
@@ -20,3 +20,12 @@ pub fn duplicate_encode(word: &str)->String {
         }
     }).collect::<Vec<_>>().join("")
 }
+
+#[test]
+fn duplicate_encode_test() {
+  assert_eq!(duplicate_encode("din"),"(((");
+  assert_eq!(duplicate_encode("recede"),"()()()");
+  assert_eq!(duplicate_encode("Success"),")())())","should ignore case");
+  assert_eq!(duplicate_encode("(( @"),"))((");
+}
+

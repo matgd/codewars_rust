@@ -4,7 +4,7 @@ const SOUTH: char = 's';
 const WEST: char = 'w';
 
 #[allow(dead_code)]
-pub fn is_valid_walk(walk: &[char]) -> bool {
+fn is_valid_walk(walk: &[char]) -> bool {
     // Takes 10 minutes?
     if walk.len() != 10 {
         return false;
@@ -26,5 +26,14 @@ pub fn is_valid_walk(walk: &[char]) -> bool {
     }
 
     true
+}
+
+#[test]
+fn is_valid_walk_test() {
+    assert!(is_valid_walk(&['n','s','n','s','n','s','n','s','n','s']));
+    assert!(!is_valid_walk(&['w','e','w','e','w','e','w','e','w','e','w','e']));
+    assert!(!is_valid_walk(&['w']));
+    assert!(!is_valid_walk(&['n','n','n','s','n','s','n','s','n','s']));
+    assert!(!is_valid_walk(&['e', 'e', 'e', 'e', 'w', 'w', 's', 's', 's', 's']))
 }
 

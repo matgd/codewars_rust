@@ -1,5 +1,5 @@
 #[allow(dead_code)]
-pub fn rot13(message: &str) -> String {
+fn rot13(message: &str) -> String {
     let lowers = ('a'..='z').collect::<Vec<char>>();
     let uppers = ('A'..='Z').collect::<Vec<char>>();
     
@@ -17,4 +17,12 @@ pub fn rot13(message: &str) -> String {
     });
 
     rotated.iter().collect()
+}
+
+#[test]
+fn rot13_test() {
+    assert_eq!(rot13("test"), "grfg");
+    assert_eq!(rot13("Test"), "Grfg");
+    assert_eq!(rot13("T est"), "G rfg");
+    assert_eq!(rot13("123Test"), "123Grfg");
 }
