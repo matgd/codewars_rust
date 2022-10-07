@@ -9,6 +9,7 @@ mod scoring_words;
 mod phone;
 mod rot13;
 mod parts_sums;
+mod valid_parentheses;
 
 fn main() {
 }
