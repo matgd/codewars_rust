@@ -8,6 +8,7 @@ mod reverse_5;
 mod scoring_words;
 mod phone;
 mod rot13;
+mod parts_sums;
 
 fn main() {
 }
